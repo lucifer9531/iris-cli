@@ -1,0 +1,81 @@
+{
+  "name": "iris-cli",
+  "version": "1.0.0",
+  "description": "创建Vue项目的脚手架",
+  "license": "MIT",
+  "author": {
+    "name": "IRIS",
+    "email": "1819109014@qq.com"
+  },
+  "main": "dist/index.js",
+  "bin": {
+    "iris": "bin/index.js"
+  },
+  "module": "dist/iris-cli.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsdx watch",
+    "serve": "npm run dev ENV=dev",
+    "build": "tsdx build",
+    "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "lint:lint-staged": "lint-staged -c ./lintstagedrc.js",
+    "lint:pretty": "pretty-quick --staged",
+    "publish:ci": "npm run build && npx np",
+    "format": "prettier --write src/**/*.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsdx test"
+  },
+  "dependencies": {
+    "@gitbeaker/node": "^34.4.1",
+    "@types/inquirer": "^8.1.3",
+    "axios": "^0.23.0",
+    "chalk": "^4.1.2",
+    "commander": "^8.3.0",
+    "download-git-repo": "^3.0.2",
+    "fs-extra": "^10.0.0",
+    "handlebars": "^4.7.7",
+    "inquirer": "^8.2.0",
+    "ora": "^6.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "conventional-changelog-cli": "^2.1.1",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-define-config": "^1.0.8",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "np": "^7.5.0",
+    "prettier": "^2.3.0",
+    "prettier-config-standard": "^4.0.0",
+    "pretty-quick": "^3.1.0",
+    "tsdx": "^0.14.1",
+    "typescript": "^4.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruixijiejie/iris-cli"
+  },
+  "bugs": {
+    "url": "https://github.com/ruixijiejie/iris-cli/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:lint-staged && npm run lint:pretty",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "publishConfig": {
+    "registry": "http://60.205.181.203:4873/"
+  },
+  "engines": {
+    "node": "^12 || >=14"
+  }
+}
