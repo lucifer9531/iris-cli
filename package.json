@@ -1,12 +1,9 @@
 {
   "name": "iris-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "创建Vue项目的脚手架",
   "license": "MIT",
-  "author": {
-    "name": "IRIS",
-    "email": "1819109014@qq.com"
-  },
+  "author": "IRIS",
   "main": "dist/index.js",
   "bin": {
     "iris": "bin/index.js"
